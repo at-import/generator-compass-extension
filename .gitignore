@@ -1,0 +1,7 @@
+node_modules
+temp/
+.www/
+components/
+!app/templates/partials/components/
+sass/
+!app/templates/sass/
