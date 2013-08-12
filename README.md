@@ -18,3 +18,18 @@
            ---___---                  \___/_/\_\\__\___|_| |_|___/_|\___/|_| |_|
 ```
 A [Yeoman](http://yeoman.io/) Generator for creating an integrate development, build, and test environment for creating [Compass Extensions](http://compass-style.org/help/tutorials/extensions/).
+
+
+## Currently Available:
+
+* Build a Compass extension in the `sass` repository
+* Test it with `example.scss` and by running `grunt server`
+  * Include `--launch` to launch a local server to test
+  * Change `server:hostname` in `config.yml` to `'*'` to access development server from any computer on your local network, remote debugging included.
+* Build your extension using `grunt extension` (will probably change to `build` later)
+* Includes a basic project with all files from example's JS and Images
+
+## Planned:
+
+* Bower integration
+* Generator for templates, plus support for multiple templates
