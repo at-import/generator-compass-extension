@@ -33,3 +33,5 @@ A [Yeoman](http://yeoman.io/) Generator for creating an integrate development, b
 
 * Bower integration
 * Generator for templates, plus support for multiple templates
+* Ruby support
+* Test suite
