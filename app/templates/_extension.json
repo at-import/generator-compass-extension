@@ -1,0 +1,17 @@
+{
+  "extension": {
+    "sass": [
+      "_<%= extSlug %>.scss",
+      "<%= extSlug %>/**/*"
+    ],
+    "images": [
+      "**"
+    ],
+    "js": [
+      "**"
+    ],
+    "fonts": [
+      "**"
+    ]
+  }
+}
