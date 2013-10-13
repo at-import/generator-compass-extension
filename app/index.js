@@ -5,6 +5,7 @@ var spawn = require('child_process').spawn;
 var yeoman = require('yeoman-generator');
 var _s = require('underscore.string');
 var check = require('validator').check;
+var chalk = require('chalk');
 
 
 var AppGenerator = module.exports = function Appgenerator(args, options, config) {
@@ -86,23 +87,23 @@ AppGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   var welcome =
-'\n                                __,'.red +
-'\n                       ____----+++|'.red + '   _   _  ___'.white +
-'\n              _____----++++++++++/'.red + '   | | | |/ _ \\'.white +
-'\n          _---+++++++++++++++++++|'.red + '   | |_| | (_) |'.white +
-'\n      __--++++++++++++++++++++++/'.red + '     \\__, |\\___/'.white +
-'\n    _-+++++++++'.red +'_'.white + '++++++++++++++++|'.red + '      __/ |'.white +
-'\n   /++++++'.red +'__'.white + '++'.red + '| |'.white + '++'.red + '__'.white + '++++++++++/'.red + '      |___/'.white +
-'\n  |+++++++'.red +'\\ \\'.white + '+'.red + '| |'.white + '+'.red + '/ /'.white + '++++++++++|'.red + '       ___ ___  _ __ ___  _ __   __ _ ___ ___'.white +
-'\n |+++++++++'.red +'\\ \\| |/ /'.white + '++++++++++/'.red + '       / __/ _ \\| \'_ ` _ \\| \'_ \\ / _` / __/ __|'.white +
-'\n|+++++++'.red +'____\\     /____'.white + '+++++++|'.red + '      | (_| (_) | | | | | | |_) | (_| \\__ \\__ \\'.white +
-'\n|++++++'.red +'/_____     _____\\'.white + '+++++/'.red + '        \\___\\___/|_| |_| |_| .__/ \\__,_|___/___/'.white +
-'\n |++++++++++'.red +'/     \\'.white + '++++++++++|'.red + '                  _        | |      _'.white +
-'\n  |++++++++'.red +'/ /| |\\ \\'.white + '++++++++/'.red + '                  | |       |_|     (_)'.white +
-'\n   \\_+++++'.red +'/_/'.white + '+'.red + '| |'.white + '+'.red + '\\_\\'.white + '+++++_-'.red + '           _____  _| |_ ___ _ __  ___ _  ___  _ __'.white +
-'\n     -__++++++'.red +'|_|'.white + '++++++__-'.red + '            / _ \\ \\/ / __/ _ \\ \'_ \\/ __| |/ _ \\| \'_ \\'.white +
-'\n        --_+++++++++_--'.red + '              |  __/>  <| ||  __/ | | \\__ \\ | (_) | | | |'.white +
-'\n           ---___---'.red + '                  \\___/_/\\_\\\\__\\___|_| |_|___/_|\\___/|_| |_|'.white;
+chalk.red'\n                                __,') +
+chalk.red'\n                       ____----+++|') + chalk.white('   _   _  ___') +
+chalk.red'\n              _____----++++++++++/') + chalk.white('   | | | |/ _ \\') +
+chalk.red'\n          _---+++++++++++++++++++|') + chalk.white('   | |_| | (_) |') +
+chalk.red'\n      __--++++++++++++++++++++++/') + chalk.white('     \\__, |\\___/') +
+chalk.red'\n    _-+++++++++') +chalk.white('_') + chalk.red('++++++++++++++++|') + chalk.white('      __/ |') +
+chalk.red'\n   /++++++') +chalk.white('__') + chalk.red('++') + chalk.white('| |') + chalk.red('++') + chalk.white('__') + chalk.red('++++++++++/') + chalk.white('      |___/') +
+chalk.red'\n  |+++++++') +chalk.white('\\ \\') + chalk.red('+') + chalk.white('| |') + chalk.red('+') + chalk.white('/ /') + chalk.red('++++++++++|') + chalk.white('       ___ ___  _ __ ___  _ __   __ _ ___ ___') +
+chalk.red'\n |+++++++++') +chalk.white('\\ \\| |/ /') + chalk.red('++++++++++/') + chalk.white('       / __/ _ \\| \'_ ` _ \\| \'_ \\ / _` / __/ __|') +
+chalk.red'\n|+++++++') +chalk.white('____\\     /____') + chalk.red('+++++++|') + chalk.white('      | (_| (_) | | | | | | |_) | (_| \\__ \\__ \\') +
+chalk.red'\n|++++++') +chalk.white('/_____     _____\\') + chalk.red('+++++/') + chalk.white('        \\___\\___/|_| |_| |_| .__/ \\__,_|___/___/') +
+chalk.red'\n |++++++++++') +chalk.white('/     \\') + chalk.red('++++++++++|') + chalk.white('                  _        | |      _') +
+chalk.red'\n  |++++++++') +chalk.white('/ /| |\\ \\') + chalk.red('++++++++/') + chalk.white('                  | |       |_|     (_)') +
+chalk.red'\n   \\_+++++') +chalk.white('/_/') + chalk.red('+') + chalk.white('| |') + chalk.red('+') + chalk.white('\\_\\') + chalk.red('+++++_-') + '           _____  _| |_ ___ _ __  ___ _  ___  _ __'.white +
+chalk.red'\n     -__++++++') +chalk.white('|_|') + chalk.red('++++++__-') + chalk.white('            / _ \\ \\/ / __/ _ \\ \'_ \\/ __| |/ _ \\| \'_ \\') +
+chalk.red'\n        --_+++++++++_--') + chalk.white('              |  __/>  <| ||  __/ | | \\__ \\ | (_) | | | |') +
+chalk.red'\n           ---___---') + chalk.white('                  \\___/_/\\_\\\\__\\___|_| |_|___/_|\\___/|_| |_|');
 
   console.log(welcome);
   console.log("\nI provide an integrated development, build, and test environment for creating Compass extensions. For more information on this generator, see https://github.com/Team-Sass/generator-compass-extension. For more information on Compass extensions, see http://compass-style.org/help/tutorials/extensions/.\n");
