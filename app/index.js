@@ -64,10 +64,10 @@ var AppGenerator = module.exports = function Appgenerator(args, options, config)
       });
 
       // Log the install
-      console.log("\nI'm all done! If your installs did not finish properly, run ".white + "bundle install & bower install & npm install".yellow + " to finish installation.");
+      console.log("\nI'm all done! If your installs did not finish properly, run " + chalk.yellow("bower install & npm install") + " to finish installation.");
     }
     else {
-      var bye = "\n I'm all done! Now run ".white + "bundle install & bower install & npm install".yellow + " to finish installation.";
+      var bye = "\n I'm all done! Now run " + chalk.yellow("bower install & npm install") + " to finish installation.";
       console.log(bye);
     }
   });
@@ -87,55 +87,82 @@ AppGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   var welcome =
-chalk.red'\n                                __,') +
-chalk.red'\n                       ____----+++|') + chalk.white('   _   _  ___') +
-chalk.red'\n              _____----++++++++++/') + chalk.white('   | | | |/ _ \\') +
-chalk.red'\n          _---+++++++++++++++++++|') + chalk.white('   | |_| | (_) |') +
-chalk.red'\n      __--++++++++++++++++++++++/') + chalk.white('     \\__, |\\___/') +
-chalk.red'\n    _-+++++++++') +chalk.white('_') + chalk.red('++++++++++++++++|') + chalk.white('      __/ |') +
-chalk.red'\n   /++++++') +chalk.white('__') + chalk.red('++') + chalk.white('| |') + chalk.red('++') + chalk.white('__') + chalk.red('++++++++++/') + chalk.white('      |___/') +
-chalk.red'\n  |+++++++') +chalk.white('\\ \\') + chalk.red('+') + chalk.white('| |') + chalk.red('+') + chalk.white('/ /') + chalk.red('++++++++++|') + chalk.white('       ___ ___  _ __ ___  _ __   __ _ ___ ___') +
-chalk.red'\n |+++++++++') +chalk.white('\\ \\| |/ /') + chalk.red('++++++++++/') + chalk.white('       / __/ _ \\| \'_ ` _ \\| \'_ \\ / _` / __/ __|') +
-chalk.red'\n|+++++++') +chalk.white('____\\     /____') + chalk.red('+++++++|') + chalk.white('      | (_| (_) | | | | | | |_) | (_| \\__ \\__ \\') +
-chalk.red'\n|++++++') +chalk.white('/_____     _____\\') + chalk.red('+++++/') + chalk.white('        \\___\\___/|_| |_| |_| .__/ \\__,_|___/___/') +
-chalk.red'\n |++++++++++') +chalk.white('/     \\') + chalk.red('++++++++++|') + chalk.white('                  _        | |      _') +
-chalk.red'\n  |++++++++') +chalk.white('/ /| |\\ \\') + chalk.red('++++++++/') + chalk.white('                  | |       |_|     (_)') +
-chalk.red'\n   \\_+++++') +chalk.white('/_/') + chalk.red('+') + chalk.white('| |') + chalk.red('+') + chalk.white('\\_\\') + chalk.red('+++++_-') + '           _____  _| |_ ___ _ __  ___ _  ___  _ __'.white +
-chalk.red'\n     -__++++++') +chalk.white('|_|') + chalk.red('++++++__-') + chalk.white('            / _ \\ \\/ / __/ _ \\ \'_ \\/ __| |/ _ \\| \'_ \\') +
-chalk.red'\n        --_+++++++++_--') + chalk.white('              |  __/>  <| ||  __/ | | \\__ \\ | (_) | | | |') +
-chalk.red'\n           ---___---') + chalk.white('                  \\___/_/\\_\\\\__\\___|_| |_|___/_|\\___/|_| |_|');
+  chalk.red('\n                                __,') +
+  chalk.red('\n                       ____----+++|') + chalk.white('   _   _  ___') +
+  chalk.red('\n              _____----++++++++++/') + chalk.white('   | | | |/ _ \\') +
+  chalk.red('\n          _---+++++++++++++++++++|') + chalk.white('   | |_| | (_) |') +
+  chalk.red('\n      __--++++++++++++++++++++++/') + chalk.white('     \\__, |\\___/') +
+  chalk.red('\n    _-+++++++++') + chalk.white('_') + chalk.red('++++++++++++++++|') + chalk.white('      __/ |') +
+chalk.red('\n   /++++++') + chalk.white('__') + chalk.red('++') + chalk.white('| |') + chalk.red('++') + chalk.white('__') + chalk.red('++++++++++/') + chalk.white('      |___/') +
+  chalk.red('\n  |+++++++') + chalk.white('\\ \\') + chalk.red('+') + chalk.white('| |') + chalk.red('+') + chalk.white('/ /') + chalk.red('++++++++++|') + chalk.white('       ___ ___  _ __ ___  _ __   __ _ ___ ___') +
+  chalk.red('\n |+++++++++') + chalk.white('\\ \\| |/ /') + chalk.red('++++++++++/') + chalk.white('       / __/ _ \\| \'_ ` _ \\| \'_ \\ / _` / __/ __|') +
+  chalk.red('\n|+++++++') + chalk.white('____\\     /____') + chalk.red('+++++++|') + chalk.white('      | (_| (_) | | | | | | |_) | (_| \\__ \\__ \\') +
+  chalk.red('\n|++++++') + chalk.white('/_____     _____\\') + chalk.red('+++++/') + chalk.white('        \\___\\___/|_| |_| |_| .__/ \\__,_|___/___/') +
+  chalk.red('\n |++++++++++') + chalk.white('/     \\') + chalk.red('++++++++++|') + chalk.white('                  _        | |      _') +
+  chalk.red('\n  |++++++++') + chalk.white('/ /| |\\ \\') + chalk.red('++++++++/') + chalk.white('                  | |       |_|     (_)') +
+  chalk.red('\n   \\_+++++') + chalk.white('/_/') + chalk.red('+') + chalk.white('| |') + chalk.red('+') + chalk.white('\\_\\') + chalk.red('+++++_-') + chalk.white('           _____  _| |_ ___ _ __  ___ _  ___  _ __') +
+  chalk.red('\n     -__++++++') +chalk.white('|_|') + chalk.red('++++++__-') + chalk.white('            / _ \\ \\/ / __/ _ \\ \'_ \\/ __| |/ _ \\| \'_ \\') +
+  chalk.red('\n        --_+++++++++_--') + chalk.white('              |  __/>  <| ||  __/ | | \\__ \\ | (_) | | | |') +
+  chalk.red('\n           ---___---') + chalk.white('                  \\___/_/\\_\\\\__\\___|_| |_|___/_|\\___/|_| |_|');
 
   console.log(welcome);
-  console.log("\nI provide an integrated development, build, and test environment for creating Compass extensions. For more information on this generator, see https://github.com/Team-Sass/generator-compass-extension. For more information on Compass extensions, see http://compass-style.org/help/tutorials/extensions/.\n");
+  console.log("\n I provide an integrated development, build, and test environment for creating Compass extensions. For more information on this generator, see https://github.com/Team-Sass/generator-compass-extension. For more information on Compass extensions, see http://compass-style.org/help/tutorials/extensions/.\n");
 
     var prompts = [
       {
         name: 'extName',
-        message: 'The name of the Compass Extension. (Required)',
+        message: 'The name of your Compass extension. (Required)',
         default: '',
-        warning: 'You did not name the Compass extension.',
-        required: true
+        validate: function (input) {
+          try {
+            check(input).notEmpty();
+          }
+          catch (err) {
+            return 'Please enter the name of your Compass extension';
+          }
+          return true;
+        }
       },
       {
         name: 'extURL',
-        message: 'The homepage for the Compass Extension. (Required)',
+        message: 'Extension homepage (e.g. GitHub repo, personal website, etc…). (Required)',
         default: '',
-        warning: 'You need to include the Extension URL',
-        required: true
+        validate: function (input) {
+          try {
+            check(input).isUrl()
+          }
+          catch (err) {
+            return 'Please enter a valid URL';
+          }
+          return true;
+        }
       },
       {
         name: 'authorName',
-        message: 'The author of the Compass Extension. (Required)',
-        default: '',
-        warning: 'You did not include the author',
-        required: true
+        message: 'The author of the Compass extension. (Required)',
+        validate: function (input) {
+          try {
+            check(input).notEmpty();
+          }
+          catch (err) {
+            return 'Please enter the name of the author';
+          }
+          return true;
+        }
       },
       {
         name: 'authorEmail',
         message: 'The email address of the author. (Required)',
         default: '',
-        warning: 'You did not include the author\'s email address',
-        required: true
+        validate: function (input) {
+          try {
+            check(input).isEmail();
+          }
+          catch (err) {
+            return 'Please enter a valid email address';
+          }
+          return true;
+        }
       }
       //,
       // {
@@ -149,17 +176,7 @@ chalk.red'\n           ---___---') + chalk.white('                  \\___/_/\\_\
   if (this.options['git']) {
     prompts.push({
       name: 'ghRepo',
-      message: 'Add Origin Git Remote? [ex: git@github.com:Snugug/generator-armadillo] (false)',
-      default: '',
-      warning: 'You did not include a GitHub Repo.',
-      before: function(value) {
-        if (value === '') {
-          return false;
-        }
-        else {
-          return value;
-        }
-      }
+      message: 'Add Origin Git Remote? [ex: git@github.com:Team-Sass/generator-style-prototype] (false)'
     });
   }
 
@@ -170,11 +187,7 @@ chalk.red'\n           ---___---') + chalk.white('                  \\___/_/\\_\
   //   warning: 'You did not specify if you\'re going to deploy to GitHub'
   // });
 
-  this.prompt(prompts, function (err, props) {
-
-    if (err) {
-      return this.emit('error', err);
-    }
+  this.prompt(prompts, function (props) {
 
     // manually deal with the response, get back and store the results.
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
@@ -201,6 +214,11 @@ chalk.red'\n           ---___---') + chalk.white('                  \\___/_/\\_\
   }.bind(this));
 };
 
+AppGenerator.prototype.setup = function setup() {
+  this.template('_README.md', this.projectDir + 'README.md');
+  this.template('_CONTRIBUTING.md', this.projectDir + 'CONTRIBUTING.md');
+}
+
 AppGenerator.prototype.gruntfile = function gruntfile() {
   this.template('_gruntfile.js', this.projectDir + 'Gruntfile.js');
 };
@@ -214,10 +232,10 @@ AppGenerator.prototype.git = function git() {
   this.copy('gitattributes', this.projectDir + '.gitattributes');
 };
 
-// AppGenerator.prototype.bower = function bower() {
-//   this.copy('bowerrc', this.projectDir + '.bowerrc');
-//   this.template('_bower.json', this.projectDir + 'bower.json');
-// };
+AppGenerator.prototype.bower = function bower() {
+  this.copy('bowerrc', this.projectDir + '.bowerrc');
+  this.template('_bower.json', this.projectDir + 'bower.json');
+};
 
 AppGenerator.prototype.jshint = function jshint() {
   this.copy('jshintrc', this.projectDir + '.jshintrc');
