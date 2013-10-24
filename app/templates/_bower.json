@@ -1,5 +1,27 @@
 {
   "name": "<%= (extSlug) %>",
   "version": "0.0.0",
-  "devDependencies": {}
+  "authors": [
+    "<%= (authorName) %> <<%= (authorEmail) %>>"
+  ],
+  "main": "sass/_<%= extSlug %>.scss",
+  "devDependencies": {},
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.js",
+    "examples",
+    "images",
+    "fonts",
+    "js",
+    "package.json",
+    "config.*",
+    "*.gem"
+  ]
 }
