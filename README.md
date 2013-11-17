@@ -20,7 +20,7 @@
 A [Yeoman](http://yeoman.io/) Generator for creating an integrate development, build, and test environment for creating [Compass Extensions](http://compass-style.org/help/tutorials/extensions/).
 
 
-## Currently Available:
+## Currently Available
 
 * Build a Compass extension in the `sass` repository
 * Test it with `example.scss` and by running `grunt server`
@@ -29,7 +29,11 @@ A [Yeoman](http://yeoman.io/) Generator for creating an integrate development, b
 * Build your extension using `grunt extension` (will probably change to `build` later)
 * Includes a basic project with all files from example's JS and Images
 
-## Planned:
+## Rolling a Release
+
+When you're ready to roll a release, commit all of your changes and using [SEMVER](http://semver.org/) and [`grunt bump`](https://github.com/vojtajina/grunt-bump), increase your version number. Once your version number is bumped and committed, run `grunt extension` to build your compass extension. It will create `extension.gem` in your project directory. To push that up to [RubyGems](http://rubygems.org/), run `gem push extension.gem`.
+
+## Planned
 
 * Bower integration
 * Generator for templates, plus support for multiple templates
